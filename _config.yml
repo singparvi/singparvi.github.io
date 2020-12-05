@@ -18,7 +18,8 @@ navbar-links:
   Favourites Links:
     - Beautiful Jekyll: "https://lambdaschool.com"
     - Google: "https://www.google.com/"
-  Author's Home: "https://deanattali.com"
+    - GithubIO: "https://singparvi.github.io"
+  Author's Home: "https://singparvi.github.io"
 
 # --- Logo --- #
 
@@ -44,6 +45,7 @@ social-network-links:
   telephone: +14167321210
   whatsapp: +14167321210
   skype: sing.parvi
+  telegram: +919868184570
 # facebook: deanattali
 #  twitter: daattali
 #  patreon: DeanAttali
@@ -81,7 +83,7 @@ share-links-active:
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
 url-pretty: "LambdaExample.com"
-
+ 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
 
