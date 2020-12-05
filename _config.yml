@@ -6,19 +6,19 @@
 # --- Required options --- #
 
 # Name of website
-title: My Website
+title: Lambda Example
 
 # Your name to show in the footer
-author: Some Person
+author: Parvi Singh
 
 # --- List of links in the navigation bar --- #
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+  Favourites Links:
+    - Beautiful Jekyll: "https://lambdaschool.com"
+    - Google: "https://www.google.com/"
+  Author's Home: "https://deanattali.com"
 
 # --- Logo --- #
 
@@ -39,12 +39,15 @@ round-avatar: true
 # Select the social network links that you want to show in the footer.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "someone@example.com"
-  facebook: deanattali
-  github: daattali
-  twitter: daattali
-  patreon: DeanAttali
-  youtube: c/daattali
+  email: "parvinder-singh@lambdaschool.com"
+  github: singparvi
+  telephone: +14167321210
+  whatsapp: +14167321210
+  skype: sing.parvi
+# facebook: deanattali
+#  twitter: daattali
+#  patreon: DeanAttali
+#  youtube: c/daattali
 #  reddit: yourname
 #  linkedin: daattali
 #  xing: yourname
