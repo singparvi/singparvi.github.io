@@ -15,10 +15,10 @@ author: Parvi Singh
 
 navbar-links:
   About Me: "aboutme"
+  Github Repos: "https://https://github.com/singparvi"
   Favourites Links:
-    - Beautiful Jekyll: "https://lambdaschool.com"
     - Google: "https://www.google.com/"
-    - GithubIO: "https://singparvi.github.io"
+    - Github Repos: "https://singparvi.github.io"
   Author's Home: "https://singparvi.github.io"
 
 # --- Logo --- #
@@ -28,7 +28,7 @@ navbar-links:
 avatar: "/assets/img/Parvinder Photo 2020.jpg"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
-round-avatar: true
+round-avatar: false
 
 # If you want to have an image logo in the top-left corner instead of having the title of the website,
 # then specify the following parameter
@@ -44,6 +44,7 @@ social-network-links:
   github: singparvi
   telephone: +14167321210
   telegram: +919868184570
+  linkedin: parvi-singh-4608aa1ba
 # facebook: deanattali
 #  twitter: daattali
 #  patreon: DeanAttali
@@ -80,7 +81,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "LambdaExample.com"
+url-pretty: "ParviSingh.com"
  
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
@@ -98,8 +99,8 @@ feed_show_tags: true
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-navbar-col: "#327ba8"
-navbar-text-col: "#404040"
+navbar-col: "#FFFFFF"
+navbar-text-col: "#333333"
 navbar-border-col: "#DDDDDD"
 page-col: "#FFFFFF"
 text-col: "#404040"
