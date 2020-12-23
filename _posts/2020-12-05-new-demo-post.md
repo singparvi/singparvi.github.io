@@ -12,6 +12,26 @@ tags: [python, other]
 
 {% include figure.html %}
 
+# Important Files to Retain 
+
+{% include Annual_Gun_Sales_100k_Dropdown.html %}
+
+{% include Annual_Gun_Sales_Population_Dropdown.html %}
+
+{% include Barplot_Annual_Gun_Sales_100k.html %}
+
+{% include Barplot_Annual_Gun_Sales_Population.html %}
+
+{% include Barplot_YoY_Gun_Sales_Population.html %}
+
+{% include Choropleth_Annual_Gun_Sales_100k.html %}
+
+{% include Choropleth_Annual_Gun_Sales_Population.html %}
+
+{% include Treemap_US_Population.html %}
+
+
+
 ## This is a markdown
 
 ### Smaller Header
