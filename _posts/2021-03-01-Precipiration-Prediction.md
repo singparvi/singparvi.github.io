@@ -1,11 +1,11 @@
 ---
 layout: post
-title: US Guns Sales Statistics from 2001 to 2020
-subtitle: This post is to investigate the gun sales pattern in the US using publically available data.
-cover-img: /assets/img/US-Flag-Gun.jpg
-thumbnail-img: /assets/img/US-Flag-Gun.jpg
-share-img: /assets/img/US-Flag-Gun.jpg
-tags: [python, USGunSales]
+title: Precipitation Prediction using Global Weather Data from NASA from 2001 to 2020
+subtitle: This project was to use Global Weather Data from NASA and make precipitation prediction using Machine Learning models.
+cover-img: /assets/img/Precipitation-Cover.jpg
+thumbnail-img: /assets/img/UPrecipitation-Cover.jpg
+share-img: /assets/img/Precipitation-Cover.jpg
+tags: [python, MachineLearning, Precipitation, Prediction, model]
 ---
 ## Topic Selection and the Research Questions
 
