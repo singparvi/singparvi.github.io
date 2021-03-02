@@ -3,7 +3,7 @@ layout: post
 title: Precipitation Prediction using Global Weather Data from NASA from 2001 to 2020
 subtitle: This project was to use Global Weather Data from NASA and make precipitation prediction using Machine Learning models.
 cover-img: /assets/img/Precipitation-Cover.jpg
-thumbnail-img: /assets/img/UPrecipitation-Cover.jpg
+thumbnail-img: /assets/img/Precipitation-Cover.jpg
 share-img: /assets/img/Precipitation-Cover.jpg
 tags: [python, MachineLearning, Precipitation, Prediction, model]
 ---
