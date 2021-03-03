@@ -1,24 +1,94 @@
 ---
 layout: post
-title: Precipitation Prediction using Global Weather Data from NASA from 2001 to 2020
-subtitle: This project was to use Global Weather Data from NASA and make precipitation prediction using Machine Learning models.
+title: Regression Based Prediction Model for Precipitation using Global Weather Data from NASA from 2001 to 2020
+subtitle: This project was to use Multiple Linear Regression (MLR) Machine Learning models on Global Weather Data from NASA to make precipitation prediction.
 cover-img: /assets/img/Precipitation-Cover.jpg
 thumbnail-img: /assets/img/Precipitation-Cover.jpg
 share-img: /assets/img/Precipitation-Cover.jpg
 tags: [python, MachineLearning, Precipitation, Prediction, model]
 ---
-## Topic Selection and the Research Questions
+## Abstract
 
-Before the 2020 US election, a Washington Post News Article <sup>1</sup> caught my eye. I started to investigate whether the 2020 election has anything to do with gun sales in the US. Was this year unique in any way due to COVID, or perhaps the sitting president? This got me started in collecting data on US gun sales and analyzing it. 
+ Weather is changing globally and it has been never more important to make a better prediction on weather in the human history. There is a huge human and capital cost involved with a severe weather event. Current meteorological models can predict the weather in any area of the world with great accuracy. This research aims at predicting precipitation using historical information and leveraging Multiple Linear Regression (MLR) in python Machine Learning to make a prediction. The prediction does not have to be for the following week or month but it can be for a date many years in future. An R^2 of 48.5% was obtained. The R^2 value may seam low but the Mean Absolute Error (MAE) has a 60% improvement from the baseline. The low R^2 is attributed to the non-availability of key weather information that could be added later to make a more refined prediction. Temperature was identified as the key feature in predicting precipitation. The predictions from the best model from this research may enable decision makers like governments or even insurance companies (with financial interests) make predictions to plan for policies or undertaken risks.
 
-## Source Dataset
+## Finding the Data and the JSON hurdle
 
-The data for this research was obtained from the National Instant Criminal Background Check System (NICS)<sup>2</sup> database maintained by the FBI. The NICS system was launched in 1998 and allowed a Federal Firearms Licensee (FFL), an authorized seller in the US, to run a background check on the buyer. Since its inception, NICS has provided approximately 300 million checks and led to 1.5 million denials. The denials may represent only 0.5%, but the data reveals which states are buying most guns in the US.  NICS reports the data for each state monthly in a pdf format. Buzzfeednews.com maintains a CSV format of the data from the FBI, which was of great help in the data analysis.<sup>3</sup>
+Finding the data itself was a big hurdle in this project. I wanted to take up that provides me the learning opportunity and at the same time I could apply Machine Learning to the data set, the data must have enough observations to devote time on. At least a 100,000 so that I have enough observations to train, validate and then test. On the other hand the data must relate to something that can tie into a business case. 
 
-In addition to the NICS database, the US population data of each state was also used. Information from census.gov <sup>4</sup> and jakevdp from GitHub data <sup>5</sup> was used to determine state populations from 2001-2019. The state populations for 2020 was extrapolated from 2018 and 2019 numbers.
+I finalized to take up the topic first to make prediction on rain and precipitation was the only thing that I found closest. NASA maintains an app called POWER Single Point Data Access (https://power.larc.nasa.gov/data-access-viewer/) that provides data in JavaScript Object Notation (JSON) format through an Application Programming Interface (API) to users based on the geographical location of interest. NASA POWER app required lattitude and longitude to provide the weather information. This was achieved by using an existing CSV file from GitHub user albertyw (https://github.com/albertyw/avenews/blob/master/old/data/average-latitude-longitude-countries.csv).
+
+A python program was written in python notebook that takes in the lattitude longitude information from the country list and uses to fetch the following information from NASA application:-
+
+1. Lattitude (degrees in decimal)
+2. Longitude (degrees in decimal)
+3. Elevation (m)
+4. PRECTOT - Precipitation (mm day-1)
+5. QV2M - Specific Humidity at 2 Meters (g/kg) 
+6. PS - Surface Pressure (kPa) 
+7. TS - Earth Skin Temperature (C)
+8. T2MDEW - Dew/Frost Point at 2 Meters (C) 
+9. T2M - Temperature Range at 2 Meters (C) 
+10. WS50M - Wind Speed at 50 Meters (m/s) 
+11. WS10M - Wind Speed at 10 Meters (m/s) 
+12. T2MWET - Wet Bulb Temperature at 2 Meters (C) 
+13. T2M_RANGE - Temperature Range at 2 Meters (C) 
+14. RH2M - Relative Humidity at 2 Meters (%)
+15. KT - Insolation Clearness Index (dimensionless) 
+16. CLRSKY_SFC_SW_DWN - Clear Sky Insolation Incident on a Horizontal Surface (kW-hr/m^2/day) 
+17. ALLSKY_SFC_SW_DWN - All Sky Insolation Incident on a Horizontal Surface (kW-hr/m^2/day) 
+18. ALLSKY_SFC_LW_DWN - Downward Thermal Infrared (Longwave) Radiative Flux (kW-hr/m^2/day) 
+
+The python code also merges the country code, lattitude and longitude data to make a single dataframe for use. The data included weather data for each day for 240 countries from 1980 to 2020. The resulting dataset had 3506400 rows × 22 columns.
+
+###### insert data head here
+
+The dataframe build here was used in the research further. The learning to now be able to use JSON data available publically, send JSON requests, receive and interpret  and convert them to pandas DataFrame was a small achievement in the process of the machine learning model.
 
 ---
-## Visualization and Data Interpretation
+## EDA and Machine Learning Model
+
+NASA POWER data was cleaned and unnecessary or repetitive columns were dropped. Before we get into features and target selection another feature was included in the data that should have a factor affecting precipitation of any area of interest. Forest Area data from World Bank (https://data.worldbank.org/indicator/AG.LND.FRST.K2) was imported in the dataframe as a feature through pandas merge function. 
+
+Due to the resource limitations and for quick turnarounds in model training only last twenty years of data was considered.
+
+The data was ready for some Exploratory Data Analysis (EDA). Pandas Profiling was used to generate a report to see the type of data, missing values and data distribution. 
+
+The features were selected to be the following:-
+
+1. country_code
+2. lat
+3. long
+4. elevation
+5. surface_pressure
+6. skin_temperature
+7. dew_frost
+8. temperature2m
+9. windspeed10m
+10. windspeed50m
+11. wet_bulb_temp
+12. temp_range
+13. clearness_index
+14. clear_sky_insolation
+15. all_sky_insolation
+16. radiative_flux
+17. Forest_Cover(sq KMs)
+
+The definition of all the features mentioned above was provided in the text above. Precipitation was chosen as the target.
+
+
+The target was skewed to the right due to the presence of some 300 observations. 
+
+Train, validate and test split was done. Models that use more resources and time in model fitting were allocated 
+
+
+
+Data from 200
+
+The various models run and their findings are discussed below:-
+
+### 
+
+
 
 For data analysis, only the data from 2001-2020 was considered. The line plot shown below displays the gun sales month by month across the US from 2001-2020. Key events explain major spikes in gun sales. There is an increase in gun sales around each election, be it 2008, 2012, 2016 or 2020.
 The US buys guns mainly in December, consistently year after year.
@@ -101,6 +171,8 @@ The correlation between Utah state's guns sold per 100k and its population is ap
 ## Conclusion
  
 The NICS data provide an excellent insight into the gun sales trend in the US. Election years are related to an increase in US gun sales. The sitting president might be why this factor was amplified for 2020. For future election years, it is a higher probability that US gun sales will see a distinct increase in sales compared to the preceding year. At the beginning of the data analysis, I hypothesized that the coronavirus situation impacted gun sales with unemployment. The data helped me reject the hypothesis.
+
+
 ## GitHub Repository
 
 See the link below for the code used to generate the population DataFrame.
