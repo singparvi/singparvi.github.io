@@ -188,18 +188,24 @@ Permutation importances provides an insight in ranking the features if the data 
 
 A Partial Dependence Plot was built to see the effect of more than one feature on the predicted Precipitation. From the PDP it can be inferred that the relationship between the features and the target is monotonic.
 
-**Insert the PDP here**
+![Shap Values](https://raw.githubusercontent.com/singparvi/singparvi.github.io/master/assets/img/Shap-Values.png)
 
 ### Shap Values
 
 Shap values are what the features contribute to the final predicted value.
 
-**Insert the Shap here**
 
-![Illinois OLS Results](https://raw.githubusercontent.com/singparvi/singparvi.github.io/master/assets/img/Illinois-OLS-Results.png)
+{% include Test.html url="/assets/img/Shap-Values.png" description="My cat, Robert Downey Jr." %}
+
+
+
+![Shap Values](https://raw.githubusercontent.com/singparvi/singparvi.github.io/master/assets/img/Shap-Values.png)
+Image Showing how Precipitation Changes with Change in Features
 ## Conclusion
 
 Based on all the features used in this research, Temperature was found to be the key feature that helps in predicting Precipitation of any region with a positive correlation. With  temperatures rising global due to global warming it can be said from the research in this project that the precipitation levels are also likely to increase. If you are interesting in making any predictions using the XGBoost please refer to the app in the link below.
+
+**Add Link Here to Dash App**
 
 ## GitHub Repository
 
