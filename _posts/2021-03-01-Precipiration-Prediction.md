@@ -86,7 +86,17 @@ Data from 200
 
 The various models run and their findings are discussed below:-
 
-### 
+###  RandomForestRegressor and Ordinal Encoder
+
+The code used to instantiate the pipeline was:-
+
+{% highlight python linenos %}
+pipeline_randomforest_OE = make_pipeline(
+    ce.OrdinalEncoder(),
+    RandomForestRegressor(n_estimators=100, random_state=42, verbose=1,n_jobs=-1)
+)
+pipeline_randomforest_OE.fit(X_train, y_train)
+{% endhighlight %}
 
 
 
