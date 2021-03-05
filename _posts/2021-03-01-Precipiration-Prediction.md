@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Regression Based Prediction for Precipitation using Global Climate Data from NASA from 2001 to 2020
+title: Regression Based Prediction for Precipitation using Global Climate Data
 subtitle: This project was to use Multiple Linear Regression (MLR) Machine Learning models on Global Weather Data from NASA to make precipitation prediction.
 cover-img: /assets/img/Precipitation-Cover.jpg
 thumbnail-img: /assets/img/Precipitation-Cover.jpg
@@ -42,7 +42,8 @@ A program was written in python notebook that takes in the latitude longitude in
 
 The python code also merges the country code, latitude and longitude data to make a single data frame for use. The data included weather data for each day for 240 countries from 1980 to 2020. The resulting dataset had 3506400 rows × 22 columns.
 
-###### insert data head here
+![NASA-POWER-DataFrame](https://raw.githubusercontent.com/singparvi/singparvi.github.io/master/assets/img/NASA-POWER-DataFrame.png)
+*NASA-POWER-DataFrame*
 
 The data frame built was used in the research further. The learning to now be able to use JSON data available publically, send JSON requests, receive and interpret and convert them to pandas DataFrame was a small achievement in the machine learning model.
 
