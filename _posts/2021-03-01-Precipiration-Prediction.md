@@ -176,31 +176,31 @@ Some correction in Model MAE was expectet as RandomForestRegressor tries to fit 
 
 XGBRegressor was used to extract the top 15 features that contribute to the prediction of Precipitation.
 
-**Insert the Top 15 Features here**
+![Top-15-Features](https://raw.githubusercontent.com/singparvi/singparvi.github.io/master/assets/img/Top-15-Features.png)
+*Top 15 Features as determined after XGBRegressor Run*
 
 ### Permutation Importances from XGBRegressor
 
 Permutation importances provides an insight in ranking the features if the data by permuting different values in any feature. Web bulb temperature still ranks the top in terms of predicting the precipitation however the ranking has changed for other factors as can be seen from the output below.
 
-**Insert the Top 15 Features here**
+![Permutation-Importances](https://raw.githubusercontent.com/singparvi/singparvi.github.io/master/assets/img/Permutation-Importances.png)
+*Image Showing Permutation Importances by priority*
 
 ### Partial Dependence Plot (PDP)
 
 A Partial Dependence Plot was built to see the effect of more than one feature on the predicted Precipitation. From the PDP it can be inferred that the relationship between the features and the target is monotonic.
 
-![Shap Values](https://raw.githubusercontent.com/singparvi/singparvi.github.io/master/assets/img/Shap-Values.png)
+![PDP-Wet-Bulb_Temperature](https://raw.githubusercontent.com/singparvi/singparvi.github.io/master/assets/img/PDP-Wet-Bulb_Temperature.png)
+*Partial Dependence Plot showing the Variation of Precipitation with Wet Bulb Temperature*
 
+![PDP-Wet-Bulb_Temperature-and-Radiative-Flux](https://raw.githubusercontent.com/singparvi/singparvi.github.io/master/assets/img/PDP-Wet-Bulb_Temperature-and-Radiative-Flux.png)
+*Partial Dependence Plot showing the Variation of Precipitation with Wet Bulb Temperature and Radiative Flux*
 ### Shap Values
 
 Shap values are what the features contribute to the final predicted value.
 
-
-{% include Test.html url="/assets/img/Shap-Values.png" description="My cat, Robert Downey Jr." %}
-
-
-
 ![Shap Values](https://raw.githubusercontent.com/singparvi/singparvi.github.io/master/assets/img/Shap-Values.png)
-Image Showing how Precipitation Changes with Change in Features
+*Image Showing how Precipitation Changes with Change in Features*
 ## Conclusion
 
 Based on all the features used in this research, Temperature was found to be the key feature that helps in predicting Precipitation of any region with a positive correlation. With  temperatures rising global due to global warming it can be said from the research in this project that the precipitation levels are also likely to increase. If you are interesting in making any predictions using the XGBoost please refer to the app in the link below.
