@@ -78,17 +78,24 @@ The definition of all the features mentioned above was provided in the text abov
 
 The target was skewed to the right due to the presence of some 300 observations. 
 
-Train, validate and test split was done. Models that use more resources and time in model fitting were allocated 
 
+### Baseline
 
+ Precipitation mean was chosen to set a baseline to compare the model performance. Precipitation mean was calculated for the entire data and was determined as **2.787 mm**. Mean Absolute Error (MAE) was calculated and was found to be **3.379 mm**. The baseline MAE is used to compare various models to see how are we better in making precipitation predictions.
 
-Data from 200
+### Models
+
+Train, validate and test split was done. In the model pipelines that use more time and resources in fitting were allocated 
+
+Train - Data from 2008 - 2012
+Validate - Data from 2013 only
+Test - Data from 2014
 
 The various models run and their findings are discussed below:-
 
-###  RandomForestRegressor and Ordinal Encoder
+#### 1. Ordinal Encoder and RandomForestRegressor pipeline 
 
-The code used to instantiate the pipeline was:-
+The code to instantiated and fit the pipeline was as simple as:-
 
 {% highlight python linenos %}
 pipeline_randomforest_OE = make_pipeline(
@@ -98,7 +105,88 @@ pipeline_randomforest_OE = make_pipeline(
 pipeline_randomforest_OE.fit(X_train, y_train)
 {% endhighlight %}
 
+Since the data was superclean with no missing values, compute or scaling were not used. 
 
+Parameters to benchmark the model:-
+
+| Parameter | Value |
+| :------ |:--- |
+| Time to fit the model | 22 sec |
+| Training Score | 93.70 % |
+| Validation Score | 44.02 % |
+| Baseline MAE | 3.379 mm 
+| Model MAE | 2.198 mm 
+| Improvement over Baseline MAE | 53.73 % 
+
+#### 2. OneHotEncoder and RandomForestRegressor pipeline 
+
+The code to instantiated and fit the pipeline was:-
+
+{% highlight python linenos %}
+pipeline_randomforest_OHE = make_pipeline(
+    ce.OneHotEncoder(use_cat_names=True),
+    RandomForestRegressor(n_estimators=100, random_state=42, verbose=1,n_jobs=-1)
+)
+pipeline_randomforest_OHE.fit(X_train, y_train)
+{% endhighlight %}
+
+Parameters to benchmark the model:-
+
+| Parameter | Value |
+| :------ |:--- |
+| Time to fit the model | 222 sec |
+| Training Score | 93.70 % |
+| Validation Score | 47.76 % |
+| Baseline MAE | 3.379 mm 
+| Model MAE | 1.965 mm 
+| Improvement over Baseline MAE | 71.89 % 
+
+#### 3. OrdinalEncoder and XGBoost pipeline 
+
+Before the XGBoost pipeline can be instantiated and fit, train, validation and test dataset were updated as follows:-
+
+Train - Data from 2001 - 2012
+Validate - Data from 2013 - 2016
+Test - Data from 2017 - 2020
+
+The rest was similar to what was done in the past. The code to instantiated and fit the pipeline was:-
+
+{% highlight python linenos %}
+pipeline_xgboost = make_pipeline(
+    ce.OrdinalEncoder(),
+    XGBRegressor(n_estimators=100, random_state=42, verbose=1, n_jobs=-1)
+)
+pipeline_xgboost.fit(X_train, y_train)
+{% endhighlight %}
+
+Parameters to benchmark the model:-
+
+| Parameter | Value |
+| :------ |:--- |
+| Time to fit the model | 11.47 sec |
+| Training Score | 59.00 % |
+| Validation Score | 48.45 % |
+| Baseline MAE | 3.379 mm 
+| Model MAE | 2.022 mm 
+| Improvement over Baseline MAE | 67.09 % 
+
+**Analysis**
+
+Some correction in Model MAE was expectet as RandomForestRegressor tries to fit a model with infinite depth. This is reflected by the model score for the RandomForestRegressor while the model wasn't doing very well with the validation score. Another thing to note in the XGBoost model is that the data for a longer duration was used as compared to the earlier run models. Which may be another source due to which our improvement over the baseline was reduced.
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
 
 For data analysis, only the data from 2001-2020 was considered. The line plot shown below displays the gun sales month by month across the US from 2001-2020. Key events explain major spikes in gun sales. There is an increase in gun sales around each election, be it 2008, 2012, 2016 or 2020.
 The US buys guns mainly in December, consistently year after year.
