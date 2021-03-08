@@ -222,7 +222,7 @@ See the link below for the code used to get the DataFrame used in this research.
 [https://github.com/singparvi/Colab_Notebooks/blob/master/Unit%202%20-%20Linear%20Models/Sprint_4_Build_Precipitation_Prediction/Get_Precipiration_Data_NASA_Submission.ipynb](https://github.com/singparvi/Colab_Notebooks/blob/master/Unit%202%20-%20Linear%20Models/Sprint_4_Build_Precipitation_Prediction/Get_Precipiration_Data_NASA_Submission.ipynb)
 
 The code for the predictive modelling done in this project can be found in the link:-
-[https://github.com/singparvi/Colab_Notebooks/blob/master/Unit%202%20-%20Linear%20Models/Sprint_4_Build_Precipitation_Prediction/Get_Precipiration_Data_NASA_Submission.ipynb](https://github.com/singparvi/Colab_Notebooks/blob/master/Unit%202%20-%20Linear%20Models/Sprint_4_Build_Precipitation_Prediction/Get_Precipiration_Data_NASA_Submission.ipynb)
+[https://github.com/singparvi/Colab_Notebooks/blob/master/Unit%202%20-%20Linear%20Models/Sprint_4_Build_Precipitation_Prediction/Predict_Precipitation_Submission.ipynb](https://github.com/singparvi/Colab_Notebooks/blob/master/Unit%202%20-%20Linear%20Models/Sprint_4_Build_Precipitation_Prediction/Predict_Precipitation_Submission.ipynb)
 
 ## Sources
 
